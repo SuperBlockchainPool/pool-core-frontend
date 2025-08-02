@@ -262,7 +262,11 @@ function loadDashboardData(walletAddress) {
 function loadDashboardWorkerList(walletAddress) {
     return $.ajax(API + "pools/" + currentPool + "/miners/" + walletAddress)
         .done(function (data) {
-            var workerList = '<thead><th>Name</th><th>Hash Rate</th><th>Share Rate</th></thead><tbody>';
+            var workerList = '<thead>' +
+                '<th data-i18n="workername">Name</th>' +
+                '<th data-i18n="hashrate">Hash Rate</th>' +
+                '<th data-i18n="sharerate">Share Rate</th>' +
+                '</thead><tbody>';
             if (data.performance) {
                 var workerCount = 0;
                 $.each(data.performance.workers, function(index, value) {
@@ -360,7 +364,7 @@ function loadDashboardChart(walletAddress) {
 function loadMinersList() {
     return $.ajax(API + 'pools/' + currentPool + '/miners')
         .done(function (data) {
-            var minerList = '<thead><tr><th>Address</th><th>Hash Rate</th><th>Share Rate</th></tr></thead><tbody>';
+            var minerList = '<thead><tr><th>Address</th><th><span data-i18n="hashrate">Hash Rate</span></th><th>Share Rate</th></tr></thead><tbody>';
             if (data.length > 0) {
                 $.each(data, function (index, value) {
                     minerList += '<tr>';
