@@ -5,8 +5,8 @@ jQuery(function($) {
 	}
 
 	$.i18n().load({
-		'en': '../../i18n/en.json',
-		'es': '../../i18n/es.json'
+		'en': './i18n/en.json',
+		'es': './i18n/es.json'
 
 	}).done(function() {
 		
